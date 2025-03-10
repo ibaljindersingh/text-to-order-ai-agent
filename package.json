@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "start": "functions-framework --target=imageUploadTrigger"
+    "build": "tsc && node scripts/copyPackageJson.js",
+    "start": "functions-framework --target=imageUploadTrigger",
+    "populate-db":"node scripts/populateFirestore.js"
   },
   "keywords": [],
   "author": "",
@@ -16,8 +17,11 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
+    "@google-cloud/firestore": "^7.11.0",
     "@google-cloud/functions-framework": "^3.4.6",
     "@google-cloud/storage": "^7.15.2",
-    "@google/events": "^5.4.0"
+    "@google/events": "^5.4.0",
+    "dotenv": "^16.4.7",
+    "openai": "^4.86.2"
   }
 }
